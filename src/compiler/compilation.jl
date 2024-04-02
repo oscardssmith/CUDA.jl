@@ -529,7 +529,7 @@ function generate_opaque_closure(config::CompilerConfig, src::CodeInfo,
     job = CompilerJob(mi, config)   # this captures the current world age
 
     # create a code instance and store it in the cache
-    ci = CodeInstance(mi, rt, C_NULL, src, Int32(0), meth.primary_world, typemax(UInt),
+    ci = CodeInstance(mi, rt, Any, C_NULL, src, Int32(0), meth.primary_world, typemax(UInt),
                       UInt32(0), UInt32(0), nothing, UInt8(0))
     Core.Compiler.setindex!(GPUCompiler.ci_cache(job), ci, mi)
 
